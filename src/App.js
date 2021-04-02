@@ -44,5 +44,34 @@ export default App;
 
   1.step: npm install --save styled-components
   2: import styled from 'styled-components';           wherever you gotta need it
+  3: be sure you have the extension vscode-styled-components
+
+  4: imagine you have a div:
+
+  <div className="div">
+    <h2>bla bla</h2>
+  </div>
+
+  5: you go on the bottom of the page before the export of the component function and add:
+
+  const About = styled.div`
+    min-height: 90vh;
+    display: flex;
+    justify-content:space-between;
+    padding: 5rem 10rem;
+    color: #ffffff;
+    background: black;
+  `
+
+  styled is the name of your import in line 46
+
+  6: you replace the div tag with <About> </About>:
+  <About className="div">
+    <h2>bla bla</h2>
+  </About>
+
+  a good practice would be call About, AboutStyle so everyone knows that it is a style component
+  and not a real componet
 
 */
+

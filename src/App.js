@@ -71,7 +71,54 @@ export default App;
   </About>
 
   a good practice would be call About, AboutStyle so everyone knows that it is a style component
-  and not a real componet
+  and not a real componet. Now if we want to have a global style for the whole page we have to:
+
+  1. create in src a GlobalStyle.js file
+  2. the global style will look like something like this:
+
+  import {createGlobalStyle} from 'styled-components';
+
+  const GlobalStyle = createGlobalStyle`
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      background: #1b1b1b;
+    }
+    button{
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 1rem 2rem;
+      border: 3px solid #23d997;
+      background: transparent;
+      color:white;
+      transition: all 0.5 ease;
+      &:hover{
+        background-color: #23d997;
+        color: white;
+      }
+    }
+  `;
+
+export default GlobalStyle;
+
+  3. import the global style in App.js: import GlobalStyle from '.components/GlobalStyle';
+  4: add the global style as a component:
+      function App() {
+        return (
+          <div className="App">
+            <h1>Film</h1>
+            <GlobalStyle />
+            <AboutUs />
+          </div>
+        );
+      }
+
+     export default App;
 
 */
 

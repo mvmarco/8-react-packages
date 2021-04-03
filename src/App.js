@@ -154,7 +154,23 @@ export const Description = styled.div`
 
 
   3: you import: import {About, Description, Image, Hide,} from '../styles'; where needed
+--------------------------------------------------------------------------------------------------
+  if you want to customize specific style for this spefic component you can.
+  For example the layout of the Services section in a different than the AboutSection.
 
-`
+  you can create either a const:
+
+  const Services = styled.div`
+    put the style here 
+  `
+
+  or copy the one from the about section, in case it is the same, but it is a way
+  to change just the name of the div and then customize the style from there
+
+  const Services = styled(Layout)`
+    here you can customize everything you want from the original Layout style
+  `
+
+  then you use Services as styled component
 */
 

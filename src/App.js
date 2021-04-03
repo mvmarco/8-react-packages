@@ -78,6 +78,52 @@ export default App;
         </div>
         );
       }
+
+      -----------------------------------------------------------------------
+      EXAMPLE
+      -----------------------------------
+
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+
+      How is that different than this?
+
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+
+
+      It's not about sending a user to Home - it will match on both examples.
+      The problem is when you send a user to a second route - such as /about or /example - 
+      that is where your second example fails and the first example works 
+
+      ----------------------------------------------------------------------------
+      the next steps are:
+
+      go where this links are, for instance, the navbar. 
+      and:
+
+      1: import {Link} from 'react-router-dom''
+      2: remove the <a> </a> and instead put <Link> </Link>
+      3: add remove href="#" and instead put to="/contacts" for instance, same as the path
+
+      as follow:
+      <h1>
+        <Link id="logo" to="/"> capture</Link>
+      </h1>
+      <ul>
+        <li>
+          <Link to="/"> 1. About Us </Link>
+        </li>
+        <li>
+          <Link to="/work"> 2. Our Work </Link>
+        </li>
+        <li>
+          <Link to="/contacts"> 3. Contact Us </Link>
+        </li>
+      </ul>
+
 */
 
 // ############################

@@ -30,6 +30,54 @@ export default App;
   work component, the cool thing is that only that specific part of the page is going to re-render
   and not the whole page. Typically when you load a index.html or about.html the whole page is
   going to refreshing. With React not.
+
+
+  1.step: go to index.js and import the react router: import {BrowserRouter} from 'react-router-dom'
+          this basially gives us the ability to do routing. 
+  2.step: how? taking the app and wrap it inside a <BrowserRouter> tag as follow:
+    ReactDOM.render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>,
+    document.getElementById('root')
+    );
+  3.step go to App.js and: import { Switch, Route, useLocation } from "react-router-dom";
+  4. add the   we import Route, to speficy where to render the component inside ot if.
+     But it does not give an exact route. If you wrote the path="/"
+     and another path="/work" react will render both, because it notices the "/" as first
+     match.
+
+     With "switch" the component get rendered as soon as it matches the first url or the first path,
+     so if it matches the slash is not going to the other ones (paths or url) anymore. It is
+     not going to work or contacts. As soon as it matches the first one, is gonna stop and render
+     the component and it is gonna ignore everything else. So you wrap the in the "switch" 
+     all the "route".
+
+     We you use "exact" on the slash path, to say: render this specific "/" as the exact path
+     and if you don't find it render the others, because now the others are not anymore exactly
+     a single /.
+
+      function App() {
+        return (
+        <div className="App">
+          <GlobalStyle />
+          <Nav />
+          <Switch>
+            <Route path="/">
+              <AboutUs />
+            </Route>
+            <Route path="/work">
+              <OurWork />
+            </Route>
+            <Route path="/contacts">
+              <ContactUs />
+            </Route>
+          </Switch>
+        </div>
+        );
+      }
 */
 
 // ############################

@@ -71,7 +71,13 @@ export default App;
   </About>
 
   a good practice would be call About, AboutStyle so everyone knows that it is a style component
-  and not a real componet. Now if we want to have a global style for the whole page we have to:
+  and not a real componet. 
+  
+  ---------------------------------------------------------------------------------------------
+  THIS IS FOR A GLOBAL STYLE FILE: The globalStyle file's purpose is for only styling things 
+  like the HTML, body, *, etc. It's not meant to be reused, only done once.
+
+  Now if we want to have a global style for the whole page we have to:
 
   1. create in src a GlobalStyle.js file
   2. the global style will look like something like this:
@@ -119,6 +125,36 @@ export default GlobalStyle;
       }
 
      export default App;
+----------------------------------------------------------------------------------------------
+IF YOU DO NOT WANT SPEFIC STYLE ONLY IN ONE PAGE IT IS COMMON TO CREATE A SINGLE FILE, IN SRC
+CALLED style.js
 
+In there you can put all the reusable styles for descriptions, images, etc. 
+that may be imported to multiple components to be reused across the project.
+
+1: you import: import styled from 'styled-components';
+2: you export every single const
+
+import styled from 'styled-components';
+//styled components
+export const About = styled.div`
+  min-height: 90vh;
+  display: flex;
+  justify-content:space-between;
+  padding: 5rem 10rem;
+  color: #ffffff;
+`
+
+export const Description = styled.div`
+  flex: 1;
+  padding-right: 5rem;
+  h2{
+    font-weight: lighter;
+  }
+
+
+  3: you import: import {About, Description, Image, Hide,} from '../styles'; where needed
+
+`
 */
 

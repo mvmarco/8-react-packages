@@ -19,6 +19,19 @@ export default App;
 // REACT-ROUTER-DOM
 // ############################
 
+
+/* 
+  What "react-router-dom" is a package that we can install (npm install react-router-dom) that
+  render components based on where we are on the URL. Typically what you would do is, in a normal
+  website using html css and JavaScript, when you click on another page for instance, about.html
+  you load that page. when you go to home.html you go to home and so on. In React we do not do that
+  because we do things dynamically in JavaScript. So what "react-router-dom" does, it is to literally
+  render the component based on the url we are on. So if we are on "work" is gonna render the
+  work component, the cool thing is that only that specific part of the page is going to re-render
+  and not the whole page. Typically when you load a index.html or about.html the whole page is
+  going to refreshing. With React not.
+*/
+
 // ############################
 // FRAMER-MOTION
 // ############################

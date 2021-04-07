@@ -171,7 +171,56 @@ export default App;
       )
 
     
-     In simple terms the "variants" is the {object} and the "initial" and "animate" are the ""
+     In simple terms the "variants" is the {object} and the "initial" and "animate" are the "".
+     Another benefit of using the variants is that we can chain together multiple anumations.
+     we can "stagger" other animations that are the same (the h2).
+     for instance if we have an animated div we can add the animation of the h2 associated
+     to the div itself, because he is the parent variant. So we can remove the 
+     <motion.h2 variants={titleAnim} initial="hidden" animate="show">
+     and use only: <motion.h2 variants={titleAnim} > and apply it to all the h2 we have.
+     then we can go to the parent variant const, in the transition and add another property
+      staggerChildren: 1. Which basically adds to all the h2 the same hidden and show, initial
+      and animate but with a different transition time. It is important to notice that
+      that initial and animate property on the parent and children need to have the same name
+      such as "hidden" and "show" both in parent and children. You can also add another property
+      called "when". That basically indicates when this transition time should occur:
+      when: "afterChildren" so basically the div slide after the transition in opacity occurs.
+      if you do not put nothing, both parent and children will start at the same time.
+
+
+:
+
+  const AboutSection = () => {
+  const titleAnim = {
+    hidden: {opacity: 0},
+    show: {opacity: 1, transition: { duration: 2} },
+  }
+  const containerAnim = {
+    hidden: {x: 100},
+    show: {x:0, transition: { duration: 0.75, ease: "easeOut", staggerChildren: 1}},
+  }
+  return (
+    <Layout>
+      <Description>
+        <motion.div className="title" variants={containerAnim} initial="hidden" animate="show">
+          <Hide>
+            <motion.h2 variants={titleAnim} initial="hidden" animate="show">
+              We work to make
+            </motion.h2>
+          </Hide>
+          <Hide>
+            <h2>
+              your <span>dreams</span> come{" "}
+            </h2>
+          </Hide>
+          <Hide>
+            <h2>true.</h2>
+          </Hide>
+        </motion.div>
+      </Description>
+    </Layout>
+  );
+}
 
 
 

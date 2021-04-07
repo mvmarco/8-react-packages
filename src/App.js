@@ -172,20 +172,33 @@ export default App;
 
     
      In simple terms the "variants" is the {object} and the "initial" and "animate" are the "".
-     Another benefit of using the variants is that we can chain together multiple anumations.
-     we can "stagger" other animations that are the same (the h2).
-     for instance if we have an animated div we can add the animation of the h2 associated
-     to the div itself, because he is the parent variant. So we can remove the 
+
+     Another benefit of using the variants is that we can chain together multiple animations.
+     we can "stagger" (arrange) animations by placing them to all the same elements (the h2)
+     and connect them with the parent element (like a div) ---> this is called "propagation"
+     What means is that we do not have to specify anymore in all the h2: initial="hidden" animate="show"
+     because it is mentioned in the parent div. What means is not that the h2 is gonna take the
+     all animations on the parent but only the  initial="hidden" animate="show" so you can avoid to write
+     them and they will refer anyway to the variants we are calling them.
+     for instance if we have an animated div with its own variants and properties
+     we can add the same properties, with the same names, on the h2. So we can remove the 
      <motion.h2 variants={titleAnim} initial="hidden" animate="show">
-     and use only: <motion.h2 variants={titleAnim} > and apply it to all the h2 we have.
+     and use only: <motion.h2 variants={titleAnim} > and then apply the same to all the h2 we have.
+
+     Definition: Propagation if a motion component has children, changes in variant will flow down 
+     through the component hierarchy. These changes in variant will flow down until a child component
+     defines its own animate property. Check here: https://www.framer.com/api/motion/animation/
+
      then we can go to the parent variant const, in the transition and add another property
-     staggerChildren: 1. Which basically adds to all the h2 the same hidden and show, initial
-     and animate but with a different transition time. It is important to notice that
-     that initial and animate property on the parent and children need to have the same name
-     such as "hidden" and "show" both in parent and children. You can also add another property
-     called "when". That basically indicates when this transition time should occur:
-     when: "afterChildren" so basically the div slide after the transition in opacity occurs.
+     staggerChildren: 1. Which basically gives the children a different transition time. 
+
+     It is important to notice that that initial and animate property on the parent and children 
+     need to have the same name such as "hidden" and "show" both in parent and children. 
+     You can also add another property called "when". That basically indicates when this transition 
+     time should occur:
+     when: "afterChildren" so basically the div slide after the opacity transition.
      if you do not put nothing, both parent and children will start at the same time.
+     you can also do "beforeChildren"
 
 
      if you have a styled.component and you need to add the variants you do, for example:

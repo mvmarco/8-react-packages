@@ -133,6 +133,7 @@ export default App;
 /*
   https://www.framer.com/motion/ 
   it is a way of adding animation using React, since the styling is sometimes limiting.
+  It adds effects on elements when a component is rendered on the screen
 
   1: npm install framer-motion
   2: import {motion} from 'framer-motion' where needed
@@ -142,11 +143,36 @@ export default App;
   4: you add different properties such as animate which is an object:
      <motion.h2 animate={{
       opacity: 1
+      transition:{
+        duration: 2
+      }
      }}>
      which is the final state and the initial state:
      initial={{
      opacity: 0
      }}>We work to make</motion.h2>
+
+
+    IMPORTANT: animate, is a life property. Which means giving life to elements in a components
+    and can be hooked to the state if we want and if the state changes animate changes as 
+    consequences, check here: https://www.framer.com/motion/
+
+    Since we can have lots of animations we can save them into a variable in the component
+    called in framer motion, "variance", so to refactor the above code you can:
+      
+      const titleAnim = {
+        hidden: {opacity: 0},
+        show: {opacity: 1, transition: { duration: 2} },
+      }  
+      return (
+        <motion.h2 variants={titleAnim} initial="hidden" animate="show">
+          We work to make
+        </motion.h2>
+      )
+
+    
+     In simple terms the "variants" is the {object} and the "initial" and "animate" are the ""
+
 
 
 */

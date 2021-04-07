@@ -179,13 +179,17 @@ export default App;
      <motion.h2 variants={titleAnim} initial="hidden" animate="show">
      and use only: <motion.h2 variants={titleAnim} > and apply it to all the h2 we have.
      then we can go to the parent variant const, in the transition and add another property
-      staggerChildren: 1. Which basically adds to all the h2 the same hidden and show, initial
-      and animate but with a different transition time. It is important to notice that
-      that initial and animate property on the parent and children need to have the same name
-      such as "hidden" and "show" both in parent and children. You can also add another property
-      called "when". That basically indicates when this transition time should occur:
-      when: "afterChildren" so basically the div slide after the transition in opacity occurs.
-      if you do not put nothing, both parent and children will start at the same time.
+     staggerChildren: 1. Which basically adds to all the h2 the same hidden and show, initial
+     and animate but with a different transition time. It is important to notice that
+     that initial and animate property on the parent and children need to have the same name
+     such as "hidden" and "show" both in parent and children. You can also add another property
+     called "when". That basically indicates when this transition time should occur:
+     when: "afterChildren" so basically the div slide after the transition in opacity occurs.
+     if you do not put nothing, both parent and children will start at the same time.
+
+
+     if you have a styled.component and you need to add the variants you do, for example:
+     const Work = styled(motion.div)`
 
 
 :

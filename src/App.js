@@ -227,6 +227,49 @@ export default App;
 }
 
 
+the best way would be add a new file in SRC called animation.js and add:
+
+    export const pageAnimation = {
+      hidden: {
+        opacity: 0,
+        y: 300
+      },
+      show: { 
+        opacity:1,
+        y: 0,
+        transition: {
+          duration: 1,
+        }
+      },
+      exit: {
+        opacity:0,
+        y: 300,
+        transition: {
+          duration: 1,
+        }
+      }
+    }
+
+then import it and use the variants where needed, exit is needed to use "AnimatePresence"
+check below
+-----------------------------------------------------------------
+  another important part of "framer-motion" is the "AnimatePresence":
+  https://www.framer.com/api/motion/animate-presence/
+  AnimatePresence allows components to animate out when they're removed from the React tree.
+  so when you go to another component the animation goes back to the original status
+  and shades in while the new one shades out.
+  1: import {AnimatePresence} from "framer-motion"
+  2: wrap the Switch <AnimatePresence exitBeforeEnter> exit before enter is a way of waiting
+  that the first div shades in before the new one to shades out. Otherwise they shades in and out
+  at the same time.
+  3: create a   const location = useLocation();
+  4: add to the switch: <Switch location={location} key={location.pathname}>
+  the key is a way to let know react from where and to where we are moving
+  5: add 
+
+
+ 
+  
 
 */
 

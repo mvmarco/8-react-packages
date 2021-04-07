@@ -139,6 +139,15 @@ export default App;
   3: replace the tag of the element you want to add an animation
      for instance:  
      <motion.h2> bla bla bla </motion.h2>
+  4: you add different properties such as animate which is an object:
+     <motion.h2 animate={{
+      opacity: 1
+     }}>
+     which is the final state and the initial state:
+     initial={{
+     opacity: 0
+     }}>We work to make</motion.h2>
+
 
 */
 

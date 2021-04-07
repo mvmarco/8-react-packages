@@ -130,6 +130,19 @@ export default App;
 // FRAMER-MOTION
 // ############################
 
+/*
+  https://www.framer.com/motion/ 
+  it is a way of adding animation using React, since the styling is sometimes limiting.
+
+  1: npm install framer-motion
+  2: import {motion} from 'framer-motion' where needed
+  3: replace the tag of the element you want to add an animation
+     for instance:  
+     <motion.h2> bla bla bla </motion.h2>
+
+*/
+
+
 // ############################
 // REACT-INTERSECTION-OBSERVER
 // ############################

@@ -291,6 +291,21 @@ check below
 // REACT-INTERSECTION-OBSERVER
 // ############################
 
+/* 
+  1. npm install react-intersection-observer
+
+  it is a way that JavaScript allows you to do something on an alement once it is
+  already in view, for instance, once you scroll to something (and you view it), with
+  react-intersection-observer something will fire up.
+
+  Usually an element is set to false and when you go in, scroll in etc it will be converted
+  in true.
+  
+  2. import {useInView} from 'react-intersection-observer';
+
+
+*/
+
 // ############################
 // STYLED COMPONENTS
 // ############################

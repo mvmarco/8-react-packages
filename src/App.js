@@ -283,9 +283,11 @@ check below
   
  
   ----------------------------------------------------------------
-  CHECK BELOW: if you have a present animation you want to use when scrolling
-    const controls = useAnimation();
-    const [element, view] = useInView();     // this is part of react-intersection-observer
+  CHECK BELOW: if you have an animation that you already have and you want to use it when scrolling
+    1. import { useAnimation } from 'framer-motion';
+
+    2.const controls = useAnimation();
+    3. const [element, view] = useInView();     // this is part of react-intersection-observer
 
     if(view) {
       controls.start('show')
@@ -324,6 +326,9 @@ check below
   that has the element ref. In that case view will be true.
 
   3. if you have a present animation you want to use when scrolling
+      // import animation
+      import {fade} from '../animation'
+
       const controls = useAnimation();
       const [element, view] = useInView();
 
@@ -334,7 +339,7 @@ check below
       }
 
 
-  <Services ref={element}>
+  <Services ref={element} animate="controls" variants={fade} initial="hide">
     ....
   </Services>
   <Faq>

@@ -302,6 +302,24 @@ check below
   in true.
   
   2. import {useInView} from 'react-intersection-observer';
+  how you use it is: put in the component you need:
+        const [element, view] = useInView();
+
+  if you console.log(view) you always get false with the exception when you scroll to the component
+  that has the element ref. In that case view will be true.
+
+  <Services ref={element}>
+    ....
+  </Services>
+  <Faq>
+    ....
+  </Faq>
+
+  3. you can add a "threshold" which is basically a number that says when you are at that spefic
+  percentage in the scroll return true:
+        const [element, view] = useInView({threshold: 0.5});
+  in this case will be half of the component we are scrolling to.
+
 
 
 */

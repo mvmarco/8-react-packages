@@ -280,9 +280,20 @@ check below
   the key is a way to let know react from where and to where we are moving
   5: add 
 
-
- 
   
+ 
+  ----------------------------------------------------------------
+  CHECK BELOW: if you have a present animation you want to use when scrolling
+    const controls = useAnimation();
+    const [element, view] = useInView();     // this is part of react-intersection-observer
+
+    if(view) {
+      controls.start('show')
+    } else {
+      constrols.start('hidden')
+    }
+  
+
 
 */
 
@@ -296,7 +307,11 @@ check below
 
   it is a way that JavaScript allows you to do something on an alement once it is
   already in view, for instance, once you scroll to something (and you view it), with
-  react-intersection-observer something will fire up.
+  react-intersection-observer something will fire up. It is a way to control an animation
+  in framer motion. By default we set a variants={toSomething} and when the component renders on the
+  screen it starts animating. But we "UseAnimation" we can specifically tell when an element
+  should start animating
+
 
   Usually an element is set to false and when you go in, scroll in etc it will be converted
   in true.
@@ -307,6 +322,17 @@ check below
 
   if you console.log(view) you always get false with the exception when you scroll to the component
   that has the element ref. In that case view will be true.
+
+  3. if you have a present animation you want to use when scrolling
+      const controls = useAnimation();
+      const [element, view] = useInView();
+
+      if(view) {
+        controls.start('show')
+      } else {
+        constrols.start('hidden')
+      }
+
 
   <Services ref={element}>
     ....
@@ -319,6 +345,8 @@ check below
   percentage in the scroll return true:
         const [element, view] = useInView({threshold: 0.5});
   in this case will be half of the component we are scrolling to.
+
+
 
 
 
